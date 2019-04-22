@@ -1,0 +1,1871 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/layoutJuego"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_pantalla"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <RelativeLayout
+            android:id="@+id/relativeToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:elevation="8dp"
+            android:gravity="top">
+
+            <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/fondo_toolbar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <LinearLayout
+                android:id="@+id/relativeContenidoToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="7">
+
+                <ImageButton
+                    android:id="@+id/img_logo_cuadrado"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="false"
+                    android:background="@android:color/transparent"
+                    android:nestedScrollingEnabled="false"
+                    android:src="@mipmap/ic_logo_toolbar"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tv_toolbar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@+id/view"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/size_letter_toolbar" />
+
+                <Spinner
+                    android:id="@+id/spinner_opciones"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/relativeToolbar"
+            android:background="@android:color/black" />
+
+        <ScrollView
+            android:id="@+id/scrollInstrucciones"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:fillViewport="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/img_contenido_instrucciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/instrucciones"
+                android:visibility="visible" />
+
+        </ScrollView>
+
+        <!-- Tabla de los órganos del BOT -->
+        <TableLayout
+            android:id="@+id/tableLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/view_toolbar"
+            android:layout_weight="2"
+            android:stretchColumns="0,1"
+            android:visibility="visible"
+            android:weightSum="5">
+
+            <TableRow
+                android:id="@+id/tbRow5BotVehiculos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_juego6"
+                android:visibility="gone"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/relBot5Veh1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/ivBot5Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/textBot2Vehiculo1"
+                            android:layout_alignParentEnd="false"
+                            android:src="@drawable/ningun_vehiculo" />
+
+                        <TextView
+                            android:id="@+id/textBot5Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="false"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_alignParentTop="false"
+                            android:gravity="center_horizontal"
+                            android:text="---"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot5Veh2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot5Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot5Vehiculo2"
+                        android:layout_alignParentEnd="false"
+                        android:adjustViewBounds="false"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot5Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot5Veh3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot5Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot5Vehiculo3"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot5Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot5Veh4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot5Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot5Vehiculo4"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot5Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRow4BotVehiculos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_juego5"
+                android:visibility="gone"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/relBot4Veh1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/ivBot4Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/textBot2Vehiculo1"
+                            android:layout_alignParentEnd="false"
+                            android:src="@drawable/ningun_vehiculo" />
+
+                        <TextView
+                            android:id="@+id/textBot4Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="false"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_alignParentTop="false"
+                            android:gravity="center_horizontal"
+                            android:text="---"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot4Veh2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot4Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot4Vehiculo2"
+                        android:layout_alignParentEnd="false"
+                        android:adjustViewBounds="false"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot4Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot4Veh3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot4Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot4Vehiculo3"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot4Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot4Veh4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot4Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot4Vehiculo4"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot4Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRow3BotVehiculos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_juego4"
+                android:visibility="gone"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/relBot3Veh1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/ivBot3Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/textBot2Vehiculo1"
+                            android:layout_alignParentEnd="false"
+                            android:src="@drawable/ningun_vehiculo" />
+
+                        <TextView
+                            android:id="@+id/textBot3Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="false"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_alignParentTop="false"
+                            android:gravity="center_horizontal"
+                            android:text="---"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot3Veh2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot3Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot3Vehiculo2"
+                        android:layout_alignParentEnd="false"
+                        android:adjustViewBounds="false"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot3Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot3Veh3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot3Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot3Vehiculo3"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot3Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot3Veh4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot3Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot3Vehiculo4"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot3Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRow2BotVehiculos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_juego3"
+                android:visibility="gone"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/relBot2Veh1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/ivBot2Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/textBot2Vehiculo1"
+                            android:layout_alignParentEnd="false"
+                            android:src="@drawable/ningun_vehiculo" />
+
+                        <TextView
+                            android:id="@+id/textBot2Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="false"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_alignParentTop="false"
+                            android:gravity="center_horizontal"
+                            android:text="---"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot2Veh2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot2Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot2Vehiculo2"
+                        android:layout_alignParentEnd="false"
+                        android:adjustViewBounds="false"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot2Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot2Veh3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot2Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot2Vehiculo3"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot2Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot2Veh4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot2Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot2Vehiculo4"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot2Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRow1BotVehiculos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_juego2"
+                android:visibility="visible"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/relBot1Veh1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/ivBot1Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/textBot2Vehiculo1"
+                            android:layout_alignParentEnd="false"
+                            android:src="@drawable/ningun_vehiculo" />
+
+                        <TextView
+                            android:id="@+id/textBot1Vehiculo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="false"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_alignParentTop="false"
+                            android:gravity="center_horizontal"
+                            android:text="---"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot1Veh2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot1Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot1Vehiculo2"
+                        android:layout_alignParentEnd="false"
+                        android:adjustViewBounds="false"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot1Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot1Veh3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot1Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot1Vehiculo3"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot1Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relBot1Veh4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="2px">
+
+                    <ImageView
+                        android:id="@+id/ivBot1Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/textBot1Vehiculo4"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textBot1Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBotComodines1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/textBotComodin11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBotComodin21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBotComodin31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBotComodin41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBotComodines2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/textBotComodin12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBotComodin22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBotComodin32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBotComodin42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot2Comodines1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot2Comodin11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot2Comodin21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot2Comodin31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot2Comodin41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot2Comodines2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot2Comodin12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot2Comodin22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot2Comodin32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot2Comodin42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot3Comodines1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot3Comodin11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot3Comodin21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot3Comodin31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot3Comodin41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot3Comodines2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot3Comodin12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot3Comodin22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot3Comodin32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot3Comodin42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot4Comodines1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot4Comodin11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot4Comodin21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot4Comodin31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot4Comodin41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot4Comodines2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot4Comodin12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot4Comodin22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot4Comodin32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot4Comodin42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot5Comodines1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot5Comodin11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot5Comodin21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot5Comodin31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot5Comodin41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbRowBot5Comodines2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textBot5Comodin12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot5Comodin22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugcomodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot5Comodin32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textBot5Comodin42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugcomodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <View
+            android:id="@+id/view_tableBot"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/tableLayout2"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textCartaBot1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tableLayout2"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCartaBot2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCartaBot3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot2"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <!-- Tabla de las cartas del BOT -->
+        <TextView
+            android:id="@+id/textCarta2Bot1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textCartaBot1"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta2Bot2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/textCartaBot2"
+            android:layout_below="@+id/textCartaBot2"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta2Bot3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/textCartaBot3"
+            android:layout_below="@+id/textCartaBot3"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <!-- Tabla de las cartas del BOT -->
+        <TextView
+            android:id="@+id/textCarta3Bot1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tableLayout2"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta3Bot2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta3Bot3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot2"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <!-- Tabla de las cartas del BOT -->
+        <TextView
+            android:id="@+id/textCarta4Bot1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tableLayout2"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta4Bot2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta4Bot3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot2"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <!-- Tabla de las cartas del BOT -->
+        <TextView
+            android:id="@+id/textCarta5Bot1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tableLayout2"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta5Bot2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCarta5Bot3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textCartaBot2"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:text="New Text"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/relEspacio"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@android:color/transparent">
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                ads:adSize="LARGE_BANNER"
+                ads:adUnitId="ca-app-pub-6925377246649300/6120764378"></com.google.android.gms.ads.AdView>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_tableJugador"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_above="@+id/tableLayout3"
+            android:background="@android:color/black" />
+
+        <!-- Tabla de los órganos del Jugador -->
+        <TableLayout
+            android:id="@+id/tableLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@+id/tableLayout"
+            android:layout_gravity="bottom"
+            android:layout_weight="2.5"
+            android:visibility="visible"
+            android:gravity="bottom">
+
+            <TableRow
+                android:id="@+id/tbRowJugVehiculos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_juego"
+                android:baselineAligned="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/relJugVeh1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivJug0Vehiculo1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="10px"
+                        android:paddingTop="10px"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textJug0Vehiculo1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relJugVeh2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivJug0Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="10px"
+                        android:paddingTop="10px"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textJug0Vehiculo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relJugVeh3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivJug0Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="10px"
+                        android:paddingTop="10px"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textJug0Vehiculo3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="false"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relJugVeh4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivJug0Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="10px"
+                        android:paddingTop="10px"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <TextView
+                        android:id="@+id/textJug0Vehiculo4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="false"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow android:id="@+id/tbRowJugComodines1">
+
+                <TextView
+                    android:id="@+id/textJugComodin11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textJugComodin21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugComodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textJugComodin31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textJugComodin41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugComodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+            <TableRow android:id="@+id/tbRowJugComodines2">
+
+                <TextView
+                    android:id="@+id/textJugComodin12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tableLayout2"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textJugComodin22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textJugComodin24"
+                    android:layout_toStartOf="@+id/textView19"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textJugComodin32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textView17"
+                    android:layout_alignStart="@+id/textView20"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textJugComodin42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textJugComodin21"
+                    android:gravity="center_horizontal"
+                    android:text="---"
+                    android:visibility="gone" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- Botón del cambio de turno -->
+
+        <!-- Tabla de las cartas del Jugador Rival -->
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="false"
+            android:layout_gravity="bottom"
+            android:layout_weight="2.5"
+            android:visibility="visible"
+            android:background="@drawable/fondo_juego_derrota"
+            android:gravity="bottom">
+
+            <TableRow
+                android:id="@+id/tbRowCartas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="3">
+
+                <RelativeLayout
+                    android:id="@+id/relJugCarta1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top|left|bottom|right"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivJugCarta1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:paddingBottom="10px"
+                        android:paddingTop="10px"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <ImageView
+                        android:id="@+id/ivDejarCartas1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/cambiar_carta" />
+
+                    <TextView
+                        android:id="@+id/tvJugCarta1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/ivDejarCartas1"
+                        android:layout_toEndOf="@+id/ivDejarCartas1"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relJugCarta2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_gravity="top|left|bottom|right"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivJugCarta2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:paddingBottom="10px"
+                        android:paddingTop="10px"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <ImageView
+                        android:id="@+id/ivDejarCartas2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/cambiar_carta" />
+
+                    <TextView
+                        android:id="@+id/tvJugCarta2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relJugCarta3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_gravity="right"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivJugCarta3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:paddingBottom="10px"
+                        android:paddingTop="10px"
+                        android:src="@drawable/ningun_vehiculo" />
+
+                    <ImageView
+                        android:id="@+id/ivDejarCartas3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/cambiar_carta" />
+
+                    <TextView
+                        android:id="@+id/tvJugCarta3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="false"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_horizontal"
+                        android:text="---"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/tvMensajeVictoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tableLayout3"
+            android:layout_centerHorizontal="true"
+            android:text="Mensaje"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ivGifVictoria"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:src="@drawable/confeti"
+        android:visibility="gone" />
+
+</RelativeLayout>
